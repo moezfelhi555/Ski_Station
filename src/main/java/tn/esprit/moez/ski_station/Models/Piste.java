@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -38,4 +39,6 @@ public class Piste {
         this.longeur = longeur;
         this.pente = pente;
     }
+    @ManyToMany(mappedBy="Piste" ,cascade = CascadeType.ALL)
+    private Set<Skieur> skieur;
 }

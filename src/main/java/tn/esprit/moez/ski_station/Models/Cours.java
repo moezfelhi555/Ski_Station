@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,5 +25,10 @@ public class Cours implements Serializable {
     private Support support;
     private Float prix;
     private int creneau;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="Cours")
+    private Set<Inscription> inscriptions;
+
 
 }

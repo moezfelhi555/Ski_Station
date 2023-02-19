@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,5 +24,15 @@ public class Skieur implements Serializable {
     @Temporal (TemporalType.DATE)
     private Date dateNaissance;
     private String ville;
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private Set<Piste> Piste;
+
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="skieur")
+    private Set<Inscription> inscriptions;
 
 }
