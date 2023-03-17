@@ -1,6 +1,8 @@
 package tn.esprit.moez.ski_station.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -12,6 +14,8 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Moniteur implements Serializable {
@@ -23,43 +27,5 @@ public class Moniteur implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Cours> cours;
 
-    public Long getNumMoniteur() {
-        return numMoniteur;
-    }
 
-    public void setNumMoniteur(Long numMoniteur) {
-        this.numMoniteur = numMoniteur;
-    }
-
-    public String getNomM() {
-        return nomM;
-    }
-
-    public void setNomM(String nomM) {
-        this.nomM = nomM;
-    }
-
-    public String getPrenomM() {
-        return prenomM;
-    }
-
-    public void setPrenomM(String prenomM) {
-        this.prenomM = prenomM;
-    }
-
-    public Date getDateRecru() {
-        return dateRecru;
-    }
-
-    public void setDateRecru(Date dateRecru) {
-        this.dateRecru = dateRecru;
-    }
-
-    public Set<Cours> getCours() {
-        return cours;
-    }
-
-    public void setCours(Set<Cours> cours) {
-        this.cours = cours;
-    }
 }
